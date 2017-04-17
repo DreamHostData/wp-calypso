@@ -28,7 +28,6 @@ import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
 import LoggedOutFormFooter from 'components/logged-out-form/footer';
 import { mergeFormWithValue } from 'signup/utils';
 import SocialSignupForm from './social';
-import HrWithText from 'components/hr-with-text';
 
 const VALIDATION_DELAY_AFTER_FIELD_CHANGES = 1500,
 	debug = debugModule( 'calypso:signup-form:form' );
@@ -472,13 +471,17 @@ export default React.createClass( {
 							{ this.props.formHeader }
 						</header>
 					}
-					{ this.props.isSocialSignupEnabled && <SocialSignupForm handleResponse={ this.props.handleSocialResponse } /> }
-					{ this.props.isSocialSignupEnabled && <HrWithText>
-						{ i18n.translate( 'Or sign up with your email address:' ) }
-					</HrWithText> }
+
 					{ this.getNotice() }
 					{ this.formFields() }
-					{ this.props.formFooter || this.formFooter() }
+          { this.props.formFooter || this.formFooter() }
+					{ this.props.isSocialSignupEnabled && <p>
+						{ i18n.translate( 'Or create account using a social profile:' ) }
+					</p> }
+          { this.props.isSocialSignupEnabled && <SocialSignupForm handleResponse={ this.props.handleSocialResponse } /> }
+          { this.props.isSocialSignupEnabled && <p>
+						{ i18n.translate( 'Connect to your existing social profile to get started faster. We\'ll never post without your permission.' ) }
+					</p> }
 				</LoggedOutForm>
 
 				{ this.props.footerLink || this.footerLink() }
