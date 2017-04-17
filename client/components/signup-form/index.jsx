@@ -25,7 +25,6 @@ import LoggedOutForm from 'components/logged-out-form';
 import formState from 'lib/form-state';
 import LoggedOutFormLinks from 'components/logged-out-form/links';
 import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
-import LoggedOutFormFooter from 'components/logged-out-form/footer';
 import { mergeFormWithValue } from 'signup/utils';
 import SocialSignupForm from './social';
 
@@ -422,14 +421,14 @@ export default React.createClass( {
 		}
 	},
 
-	formFooter() {
+	formTermsOfService() {
 		return (
-			<LoggedOutFormFooter>
+			<div className="signup-form__terms-of-service">
 				{ this.termsOfServiceLink() }
 				<FormButton className="signup-form__submit" disabled={ this.state.submitting || this.props.disabled }>
 					{ this.props.submitButtonText }
 				</FormButton>
-			</LoggedOutFormFooter>
+			</div>
 		);
 	},
 
@@ -471,10 +470,9 @@ export default React.createClass( {
 							{ this.props.formHeader }
 						</header>
 					}
-
 					{ this.getNotice() }
 					{ this.formFields() }
-          { this.props.formFooter || this.formFooter() }
+          { this.formTermsOfService() }
 					{ this.props.isSocialSignupEnabled && <p>
 						{ i18n.translate( 'Or create account using a social profile:' ) }
 					</p> }
