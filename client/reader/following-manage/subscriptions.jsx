@@ -8,6 +8,7 @@ import React, { Component } from 'react';
  */
 import ReaderImportButton from 'blocks/reader-import-button';
 import ReaderExportButton from 'blocks/reader-export-button';
+import FollowingManageSearchFollowed from './search-followed';
 
 class FollowingManageSubscriptions extends Component {
 	render() {
@@ -16,6 +17,7 @@ class FollowingManageSubscriptions extends Component {
 				<div className="following-manage__subscriptions-controls">
 					<ReaderImportButton />
 					<ReaderExportButton />
+					<FollowingManageSearchFollowed />
 				</div>
 			</div>
 		);
