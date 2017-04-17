@@ -1,6 +1,3 @@
-// @todo fix this lint error
-/* eslint wpcalypso/jsx-classname-namespace: 0 */
-
 /**
  * External dependencies
  */
